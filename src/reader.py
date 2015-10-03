@@ -1,7 +1,7 @@
 import sys, os, thread, time
-sys.path.append("../")					# Append path to Leap SDK 
-output = file("./output2.txt", 'w')		# Define an output file
-import Leap								# Import Leap library
+sys.path.append("../../")							# Append path to Leap SDK 
+output = file("./datasets/learndata.dat", 'a')		# Define an output file
+import Leap											# Import Leap library
 
 def main():
     controller = Leap.Controller()		# Make a Leap Controller object
