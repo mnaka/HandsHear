@@ -1,14 +1,14 @@
 import sys, os, thread, time
-sys.path.append("../")
-output = file("./output2.txt", 'w')
-import Leap
+sys.path.append("../")					# Append path to Leap SDK 
+output = file("./output2.txt", 'w')		# Define an output file
+import Leap								# Import Leap library
 
 def main():
-    controller = Leap.Controller()
-    letter = ''
+    controller = Leap.Controller()		# Make a Leap Controller object
+    letter = ''					
     while True:
-        letter = raw_input("Gimme a letter: ")
-        if letter == 'XXX':
+        letter = raw_input("Gimme a letter: ")	# Asks for a letter
+        if letter == 'XXX':						# Dump in an XXX to quit
             output.close()
             return
         frame = controller.frame()

@@ -1,12 +1,13 @@
-import numpy as np
+# Machine learning script
 
-from sklearn.neighbors import KNeighborsClassifier
+import numpy as np									# Numpy for fast arrays
+from sklearn.neighbors import KNeighborsClassifier	# Nearest Neighbor Classifier
 
-Data = np.loadtxt("output.txt", unpack="False")
-Test = np.loadtxt("output2.txt", unpack="False")
+Data = np.loadtxt("output.txt", unpack="False")		# Training dataset
+Test = np.loadtxt("output2.txt", unpack="False")	# Testing dataset
 Test = np.transpose(Test)
-test = Test[:, :-1]
 Data = Data.transpose()
+test = Test[:, :-1]
 X = Data[:,:-1]
 y = Data[:, -1]
 
