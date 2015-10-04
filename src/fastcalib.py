@@ -6,9 +6,9 @@ import Leap                                         # Import Leap library
 def main():
     controller = Leap.Controller()      # Make a Leap Controller object
     letter = raw_input("Gimme a letter: ")
-    for i in range (0,500):
+    for i in range (0, 200):
         try:
-            time.sleep(0.02)
+            time.sleep(0.005)
             frame = controller.frame()
             data_list = []
             if len(frame.hands)==1:
