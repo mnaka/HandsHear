@@ -2,17 +2,32 @@
 
 import numpy as np									# Numpy for fast arrays
 from sklearn.neighbors import KNeighborsClassifier	# Nearest Neighbor Classifier
+from sklearn.pipeline import Pipeline               # Estimator pipeline
+from sklearn.grid_search import GridSearchCV        # Grid Search
+from sklearn import decomposition
 
-Data = np.loadtxt("output.txt", unpack="False")		# Training dataset
-Test = np.loadtxt("output2.txt", unpack="False")	# Testing dataset
+Data = np.loadtxt("./datasets/test2.dat", unpack="False")		# Training dataset
+Test = np.loadtxt("./datasets/test.dat", unpack="False")    	# Testing dataset
 
 Test = np.transpose(Test)       # Transpose data into rows of data sets
 Data = Data.transpose()         # Same idea
+
 test = Test[:, :-1]             # Data is everything but the last entry of the row
 X = Data[:,:-1]                 # Data is everything but the last entry of the row
 y = Data[:, -1]                 # The last entry of each row is the class
 
-model = KNeighborsClassifier(n_neighbors=3)     # Construct Neighbor model
+model = KNeighborsClassifier(n_neighbors=10)     # Construct Neighbor model
+pca = decomposition.PCA()
+pipe = Pipeline(steps=[('pca', pca), ('model', model)])
+pca.fit(X)
+
+# Plot the PCA spectrum
+import matplotlib.pyplot as plt
+plt.plot(pca.explained_variance_)
+print pca.explained_variance_
+plt.axis('tight')
+plt.show()
+
 model.fit(X,y)                                  # Teach the model what is up
 results =  model.predict(test)                  # Test the model against the test data
 print results                                   # Print the results
