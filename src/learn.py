@@ -16,7 +16,7 @@ test = Test[:, :-1]             # Data is everything but the last entry of the r
 X = Data[:,:-1]                 # Data is everything but the last entry of the row
 y = Data[:, -1]                 # The last entry of each row is the class
 
-model = KNeighborsClassifier(n_neighbors=5)     # Construct Neighbor model
+model = KNeighborsClassifier(n_neighbors=1000)     # Construct Neighbor model
 pca = decomposition.PCA()
 pipe = Pipeline(steps=[('pca', pca), ('model', model)])
 pca.fit(X)
