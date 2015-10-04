@@ -17,7 +17,7 @@ def main():
     counter = 0;
     while True:
         letter = ""
-        time.sleep(0.02)
+        # time.sleep(0.02)
         try:
             frame = controller.frame()
             data_list = []
@@ -67,12 +67,10 @@ def main():
                     results.append(translate[results_Array[i]])
 
                 counter = counter + 1
-                if (counter == 25):
+                if (counter == 100):
                     data = Counter(results)
-                    print [(i[0]) for i in data.most_common(1)][0]
-
+                    print data.most_common(1)
                     counter = 0
-
         except KeyboardInterrupt:
             output.close()
             return
