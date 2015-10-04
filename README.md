@@ -6,9 +6,9 @@ Hands Hear is a ASL to text converter using the Leap Motion. At the moment Hands
 
 To get started make sure you have the Leap Motion setup on your system and download the Leap Motion SDK. Our entire project is based on Python 2.7 and requires a few python libraries as dependencies. The python dependencies are:
 
--scikit-learn
--numpy
--matplotlib
+- scikit-learn
+- numpy
+- matplotlib
 
 Once you've downloaded Leap SDK you'll also need to drop all of the libraries shipped with it into the *lib* folder in the repository before you start. Once that libraries are in the *lib* folder and you've got the python dependencies you're ready to start
 
