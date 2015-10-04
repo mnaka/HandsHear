@@ -22,10 +22,10 @@ pipe = Pipeline(steps=[('pca', pca), ('model', model)])
 pca.fit(X)
 
 # <<< Plot the PCA spectrum >>>
-# import matplotlib.pyplot as plt
-# plt.plot(pca.explained_variance_)
-# plt.axis('tight')
-# plt.show()
+import matplotlib.pyplot as plt
+plt.plot(pca.explained_variance_)
+plt.axis('tight')
+plt.show()
 
 model.fit(X,y)                                  # Teach the model what is up
 results =  model.predict(test)                  # Test the model against the test data
