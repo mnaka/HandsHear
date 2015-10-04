@@ -58,18 +58,15 @@ def main():
 
                 test = np.transpose(data_list);
                 results_Array =  neigh.predict(test)
-                for ele in data_list+[letter]:
-                    output.write(str(ele)+" ")
-                output.write("\n")
 
                 results = []
                 for i in range (0,len(results_Array)):
                     results.append(translate[results_Array[i]])
-
                 counter = counter + 1
                 if (counter == 100):
                     data = Counter(results)
                     print data.most_common(1)
+                    result=[]
                     counter = 0
         except KeyboardInterrupt:
             output.close()
