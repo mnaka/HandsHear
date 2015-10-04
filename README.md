@@ -10,7 +10,14 @@ To get started make sure you have the Leap Motion setup on your system and downl
 - numpy
 - matplotlib
 
-Once you've downloaded Leap SDK you'll also need to drop all of the libraries shipped with it into the *lib* folder in the repository before you start. Once that libraries are in the *lib* folder and you've got the python dependencies you're ready to start
+Clone the git repository and checkout the release-0.1 branch to use the more stable version of HandsHear. 
+
+```bash
+  $ git clone git://github.com/mnaka/HandsHear.git
+  $ git checkout release-0.1
+```
+
+Download the Leap SDK and drop all of the libraries shipped with it into the *lib* folder in the repository before you start. Once that libraries are in the *lib* folder and you've got the python dependencies you're ready to start
 
 ##The scripts
 
@@ -21,7 +28,7 @@ All scripts reside in the *src* folder. Open a terminal there to begin.
 Stream.py interprets signs from the Leap in real-time and prints the results to the standard output. To run:
 
 ```bash
-  >>> python stream.py
+  $ python stream.py
 ```  
 
 ### learn.py
