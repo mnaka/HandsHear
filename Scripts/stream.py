@@ -5,7 +5,7 @@ import Leap                                         # Import Leap library
 from sklearn.externals import joblib
 from sklearn import svm, datasets
 import numpy as np
-
+from collections import Counter
 neigh = joblib.load('model.pkl')
 translate = {101:"a", 102:"b", 103:"c", 104:"d", 105:"e", 106:"f", 107:"g",
 108:"h", 109:"i", 110:"j", 111:"k", 112:"l", 113:"m", 114:"n", 115:"o",
@@ -14,13 +14,15 @@ translate = {101:"a", 102:"b", 103:"c", 104:"d", 105:"e", 106:"f", 107:"g",
 
 def main():
     controller = Leap.Controller()      # Make a Leap Controller object
+    counter = 0;
     while True:
         letter = ""
-        time.sleep(0.01)
+        time.sleep(0.02)
         try:
             frame = controller.frame()
             data_list = []
             if len(frame.hands)==1:
+
                 hand = frame.hands[0]
                 hand_x_basis = hand.basis.x_basis
                 hand_y_basis = hand.basis.y_basis
@@ -53,6 +55,7 @@ def main():
                 data_list.append(hand.direction[0])
                 data_list.append(hand.direction[1])
                 data_list.append(hand.direction[2])
+
                 test = np.transpose(data_list);
                 results_Array =  neigh.predict(test)
                 for ele in data_list+[letter]:
@@ -62,8 +65,14 @@ def main():
                 results = []
                 for i in range (0,len(results_Array)):
                     results.append(translate[results_Array[i]])
-                results="".join(results);
-                print results;
+
+                counter = counter + 1
+                if (counter == 25):
+                    data = Counter(results)
+                    print [(i[0]) for i in data.most_common(1)][0]
+
+                    counter = 0
+
         except KeyboardInterrupt:
             output.close()
             return
