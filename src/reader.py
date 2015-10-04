@@ -1,6 +1,6 @@
 import sys, os, thread, time
 sys.path.append("../../")                           # Append path to Leap SDK
-output = file("./datasets/learndata.dat", 'a')      # Define an output file
+output = file("./datasets/testdata.dat", 'w')      # Define an output file
 import Leap                                         # Import Leap library
 
 def main():
@@ -27,18 +27,18 @@ def main():
                     bone = finger.bone(b)
                     transformed_joint_position = hand_transform.transform_point(bone.prev_joint)
                     transform_bone_direction = hand_transform.transform_point(bone.direction)
+                    data_list.append(transformed_joint_position[0])
+                    data_list.append(transformed_joint_position[1])
+                    data_list.append(transformed_joint_position[2])
+                    data_list.append(transform_bone_direction[0])
+                    data_list.append(transform_bone_direction[1])
+                    data_list.append(transform_bone_direction[2])
             data_list.append(transformed_position[0])
             data_list.append(transformed_position[1])
             data_list.append(transformed_position[2])
             data_list.append(transformed_direction[0])
             data_list.append(transformed_direction[1])
             data_list.append(transformed_direction[2])
-            data_list.append(transformed_joint_position[0])
-            data_list.append(transformed_joint_position[1])
-            data_list.append(transformed_joint_position[2])
-            data_list.append(transform_bone_direction[0])
-            data_list.append(transform_bone_direction[1])
-            data_list.append(transform_bone_direction[2])
             data_list.append(hand.palm_normal[0])
             data_list.append(hand.palm_normal[1])
             data_list.append(hand.palm_normal[2])
