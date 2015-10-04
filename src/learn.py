@@ -22,10 +22,10 @@ pipe = Pipeline(steps=[('pca', pca), ('model', model)])
 pca.fit(X)
 
 # <<< Plot the PCA spectrum >>>
-import matplotlib.pyplot as plt
-plt.plot(pca.explained_variance_)
-plt.axis('tight')
-plt.show()
+# import matplotlib.pyplot as plt
+# plt.plot(pca.explained_variance_)
+# plt.axis('tight')
+# plt.show()
 
 n_components = [3, 4, 5, 6, 10, 15, 20]
 n_esti = [5, 10, 15, 20, 25, 50]
