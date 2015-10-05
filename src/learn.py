@@ -44,5 +44,5 @@ print "Pipeline results:", results
 import pickle
 from sklearn.externals import joblib
 
-joblib.dump(estimator, '/model/estimator.pkl')         # Save model to pickle file
+joblib.dump(estimator, './model/estimator.pkl')         # Save model to pickle file
                              # Load the model again with clf=joblib.load('model.pkl')
