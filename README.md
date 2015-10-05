@@ -14,6 +14,7 @@ Clone the git repository and checkout the release-0.1 branch to use the more sta
 
 ```bash
   $ git clone git://github.com/mnaka/HandsHear.git
+  $ cd HandsHear
   $ git checkout release-0.1
 ```
 
