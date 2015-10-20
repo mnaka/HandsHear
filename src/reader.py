@@ -1,3 +1,6 @@
+# This python script reads input from the leap and 
+# sticks it in the test data set (not the learning dataset)
+
 import sys, os, thread, time
 sys.path.append("../lib/")                           # Append path to Leap SDK
 output = file("./datasets/testdata.dat", 'w')      # Define an output file

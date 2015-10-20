@@ -1,3 +1,6 @@
+# This python script reads data from the leap and dumps it into the learning
+# data set for the machine learning
+
 import sys, os, thread, time
 sys.path.append("../lib/")                          # Append path to Leap SDK
 output = file("./datasets/learndata.dat", 'a')      # Define an output file
