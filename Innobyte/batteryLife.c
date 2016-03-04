@@ -42,3 +42,5 @@ int main(){
   printf("Discrete Form: %i\n", discreteBatteryLife(measurement));
   return 0;
 }
+
+ a
